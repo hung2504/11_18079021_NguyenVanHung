@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "390777824340",
+    "project_id": "thikethucmon",
+    "storage_bucket": "thikethucmon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390777824340:android:c12a61ff0eb11d33f4b9c1",
+        "android_client_info": {
+          "package_name": "com.example.a11_18079021_nguyenvanhung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390777824340-p8g4hg50hj3q5r8dbpc0ftrfrn5ls2p6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz4QNOJ3NxdpjDNiP-gjquQ-kdwXRSsa8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390777824340-p8g4hg50hj3q5r8dbpc0ftrfrn5ls2p6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
