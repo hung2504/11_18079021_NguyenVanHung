@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -29,7 +31,8 @@ public class ShowInfoRecyclerView extends AppCompatActivity {
     private AdapterRecycler adapterRecycler;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Employees> list;
-    private Button btnUpdate;
+    private EditText tvSearch;
+    private Button btnBack;
     String url = "https://60b5dd31fe923b0017c84c7b.mockapi.io/employees";
 
     @Override
@@ -38,7 +41,8 @@ public class ShowInfoRecyclerView extends AppCompatActivity {
         setContentView(R.layout.activity_show_info_recycler_view);
 
         recyclerView = findViewById(R.id.recycler);
-        btnUpdate = findViewById(R.id.btnUpdate);
+        btnBack = findViewById(R.id.btnBack);
+        tvSearch = findViewById(R.id.edtSearch);
         list = new ArrayList<>();
         GetArrayJson(url);
         layoutManager = new LinearLayoutManager(this);
@@ -46,10 +50,19 @@ public class ShowInfoRecyclerView extends AppCompatActivity {
         adapterRecycler = new AdapterRecycler(list);
         recyclerView.setAdapter(adapterRecycler);
 
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
+        adapterRecycler.setOnItemClick(new AdapterRecycler.onClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(ShowInfoRecyclerView.this,UpdateEmployee.class);
+                intent.putExtra("emp",list.get(position));
+                startActivity(intent);
+            }
+        });
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(ShowInfoRecyclerView.this,MainActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -1,8 +1,10 @@
 package com.example.a11_18079021_nguyenvanhung;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ public class AdapterRecycler extends RecyclerView.Adapter<AdapterRecycler.Employ
 
     private ArrayList<Employees> listEmployees;
     private onClickListener clickListener;
+
 
     public AdapterRecycler(ArrayList<Employees> listEmployees) {
         this.listEmployees = listEmployees;
@@ -53,6 +56,7 @@ public class AdapterRecycler extends RecyclerView.Adapter<AdapterRecycler.Employ
     public class EmployeeViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tvID, tvName, tvAge, tvDep;
+        private Button btnUpdate;
 
         public EmployeeViewHolder(@NonNull View itemView, onClickListener listener) {
             super(itemView);
@@ -62,7 +66,20 @@ public class AdapterRecycler extends RecyclerView.Adapter<AdapterRecycler.Employ
             tvAge = itemView.findViewById(R.id.tvAge);
             tvDep = itemView.findViewById(R.id.tvDep);
 
+            btnUpdate = itemView.findViewById(R.id.btnUpdate);
+
             itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+            btnUpdate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(listener != null){
