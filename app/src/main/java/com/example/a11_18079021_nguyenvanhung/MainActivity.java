@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnShow = findViewById(R.id.btnShow);
+        btnAdd = findViewById(R.id.btnAdd);
         list = new ArrayList<>();
         Employees e = new Employees(1,"hung",12,"ok");
         list.add(e);
@@ -42,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ShowInfoRecyclerView.class);
+                intent.putExtra("list",list);
+                startActivity(intent);
+            }
+        });
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddEmployee.class);
                 intent.putExtra("list",list);
                 startActivity(intent);
             }
