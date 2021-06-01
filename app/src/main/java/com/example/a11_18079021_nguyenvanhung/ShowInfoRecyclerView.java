@@ -47,7 +47,7 @@ public class ShowInfoRecyclerView extends AppCompatActivity {
         GetArrayJson(url);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapterRecycler = new AdapterRecycler(list);
+        adapterRecycler = new AdapterRecycler(list,ShowInfoRecyclerView.this);
         recyclerView.setAdapter(adapterRecycler);
 
         adapterRecycler.setOnItemClick(new AdapterRecycler.onClickListener() {
